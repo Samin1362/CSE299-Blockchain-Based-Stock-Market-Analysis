@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/static/images/LoginPage/LoginPageImage.jpg');/* Set your image path here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Add transparency to the form background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-form h1 {
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: left; /* Align labels to the left */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.login-form .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form button {
+    width: 48%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.signup-button {
+    background-color: #27ae60;
+}
+
+.login-form button:hover, .signup-button:hover {
+    background-color: #2980b9;
+}
+
+p{
+    color:red
+}

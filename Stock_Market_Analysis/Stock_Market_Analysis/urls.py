@@ -1,7 +1,8 @@
-"""Stock_Market_Analysis URL Configuration
+"""
+URL configuration for Stock_Market_Analysis project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,6 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#For LoginPage
+from LoginPage.views import LoginPageDetailView
+
+#For HomePage
+from HomePage.views import HomeView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #For LoginPage
+    path('loginpage/', LoginPageDetailView.as_view(), name='loginpage'),
+
+    #For HomePage
+    path('homepage/', HomeView, name='homepage'),
+
 ]
