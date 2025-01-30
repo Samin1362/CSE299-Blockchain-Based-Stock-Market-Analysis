@@ -16,20 +16,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, include
 
 #For LoginPage
-from LoginPage.views import LoginPageDetailView
+from LoginPage.views import signup, login, homepage, transaction, stock, account, test
 
 #For HomePage
-from HomePage.views import HomeView
+# from HomePage.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    #For LoginPage
-    path('loginpage/', LoginPageDetailView.as_view(), name='loginpage'),
-
     #For HomePage
-    path('homepage/', HomeView, name='homepage'),
+    # path('homepage/', HomeView, name='homepage'),
+
+    #For signup
+    path('signup/', signup, name='signup'),  
+    #For login
+    path('', login, name='login'),  
+
+    path('homepage/', homepage, name='homepage'),  
+
+    path('homepage/transaction/', transaction, name='transaction'), 
+    path('homepage/stock/', stock, name='stock'),  
+    path('homepage/account/', account, name='account'), 
+    path('test/', test, name='test'),
 
 ]

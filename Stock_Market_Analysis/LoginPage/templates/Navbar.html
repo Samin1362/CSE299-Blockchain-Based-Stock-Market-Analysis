@@ -1,0 +1,792 @@
+{% block content %}
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>BlockChain Based Stockmarket Analysis</title>
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+        <style>
+
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root
+        {
+            --bg-color: #081b29;
+            --second-bg-color: #112e42;
+            --text-color: #ededed;
+            --main-color: #032b4b;
+            --nav-color: rgb(2, 21, 16);
+            --second-nav-color: rgb(2, 16, 84);
+            --footer-color: rgb(9, 121, 191);
+        }
+
+        html
+        {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            height: 100%;
+        }
+
+        body
+        {
+            background: var(--nav-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .header
+        {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .navbar a
+        {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 3.5rem; 
+        }
+
+        .logo
+        {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .logo:hover
+        {
+            color: var(--footer-color);
+        }
+
+        .right-side li,
+        .right-side li a
+        {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .right-side li a:hover
+        {
+            color: var(--footer-color);
+        }
+
+        .header2
+        {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 20%;
+            background: var(--second-bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .navbar2 a
+        {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 0; 
+            
+        }
+
+        ul
+        {
+            list-style: none;
+        }
+
+        .navbar2 ul li
+        {
+            display:inline-block;
+            position: relative;
+        }
+
+        .navbar2 ul li a
+        {
+            display: block;
+            padding: 20px 25px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .navbar2 ul li .dropdown
+        {
+            width: fit-content;
+            background: var(--main-color);
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+
+        .navbar2 ul li .dropdown li
+        {
+            display: block;
+        }
+
+        .navbar2 ul li a:hover
+        {
+            background: var(--footer-color) ;
+            border-radius: 50px;
+        }
+
+        .navbar2 ul li:hover ul.dropdown
+        {
+            display: block;
+        }
+
+                    /*
+                        Main Section
+                    */
+
+        .section
+        {
+            padding: 10rem 9% 2rem; 
+        }
+
+        .container
+        {
+            max-width: 100%;
+        }
+
+        span
+        {
+            color: var(--footer-color);
+            font-size: 1.4rem;
+        }
+        .grid
+        {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-two-row
+        {
+            grid-template-rows: repeat(1, 1fr);
+        }
+
+        .section-main
+        {
+            background-color: var(--bg-color);
+        }
+
+        .section-main-data
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-heading
+        {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-left: 20rem;
+            color: var(--footer-color);
+        }
+
+        .main-top-data
+        {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 5rem;
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .content
+        {
+            display: none;
+        }
+
+        .about-image
+        {
+            width: 100%;
+        }
+
+        .section-main-image img
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            border-radius: 20%;
+        }
+
+        .btn-box
+        {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            height: 5rem;
+        }
+
+        .btn-box .btn
+        {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 10rem;
+            height: 100%;
+            margin-top: -3rem;
+            margin-left: 25rem;
+            background: var(--bg-color);
+            border: .2rem solid var(--main-color);
+            border-radius: 3.1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            color: var(--footer-color);
+            z-index: 1;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .btn-box .btn::before
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 3.1rem;
+            width: 0;
+            height: 100%;
+            background: var(--main-color);
+            z-index: -1;
+            transition: .5s;
+        }
+
+        .btn-box .btn:hover::before
+        {
+            width: 100%;  
+        }
+
+        .btn-box .btn2
+        {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 10rem;
+            height: 100%;
+            margin-top: 1rem;
+            margin-left: 85rem;
+            background: var(--bg-color);
+            border: .2rem solid var(--main-color);
+            border-radius: 3.1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            color: var(--footer-color);
+            z-index: 1;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .btn-box .btn2::before
+        {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 3.1rem;
+            width: 0;
+            height: 100%;
+            background: var(--main-color);
+            z-index: -1;
+            transition: .5s;
+        }
+
+        .btn-box .btn2:hover::before
+        {
+            width: 100%;  
+        }
+
+        .about-heading2
+        {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--footer-color);
+            text-align: center;
+            margin-left: 60rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-use-blckchn
+        {
+            text-align: justify;
+            margin-left: 50rem;
+            font-size: 1.2rem;
+            
+        }
+
+        .btn-box2
+        {
+
+        }
+
+        .section-main-image2 img
+        {
+            display: flex;
+            align-items: right;
+            justify-content: right;
+            width: 50%;
+            border-radius: 20%;
+            margin-left: 60rem;
+        } 
+
+        /*
+        section
+        {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .about
+        {
+            position: absolute;
+            left: 10%;
+            top: 40%;
+            right: 50%;
+            height: 800px;
+        }
+
+        .content2
+        {
+            position: absolute;
+            left: 10%;
+            top: 100%;
+        }
+
+        .heading
+        {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            margin-left: 50%;
+        }
+
+        span
+        {
+            color: var(--footer-color);
+        }
+
+        .about-img
+        {
+            position: absolute;
+            top: 7%;
+            height: 25rem;
+            width: 25rem;
+            border-radius: 50%;
+            margin-left: 43%;
+            
+        }
+
+        .about-img img
+        {
+            width: 100%;
+            border-radius: 50%;
+            border: .2rem solid var(--main-color);
+        }
+
+        .about-img .circle-spin
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 55%;
+            transform: translate(-50%, -50%) rotate(0);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border-top: .01rem solid var(--second-bg-color);
+            border-bottom: .01rem solid var(--second-bg-color);
+            border-left: .2rem solid var(--footer-color);
+            border-right: .2rem solid var(--footer-color);
+        }
+
+        .about-content
+        {
+            text-align: center;
+        }
+
+        .about-content p
+        {
+            position: absolute;
+            font-size: 1.6rem;
+            font-family: 'Times New Roman', Times, serif;
+            top: 43%;
+            left: 25%;
+
+        }
+        */
+
+        .footer 
+        {
+            background: var(--nav-color);
+            padding: 3rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .row
+        {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-col
+        {
+            width: 30%;
+            padding: 0 80px;
+            align-items: center;
+        }
+
+        .right-panel 
+        {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .support-panel 
+        {
+            margin-right: 2rem;
+        }
+
+        .navbar3 a 
+        {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar3 a:hover 
+        {
+            color: var(--main-color);
+        }
+
+        .btm-nav ul 
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btm-nav h4 + ul 
+        {
+            margin-top: 10px;
+        }
+
+        .btm-nav li 
+        {
+            margin-bottom: 10px;
+        }
+
+        .header3 
+        {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            color: var(--footer-color);
+            margin-bottom: 20px;
+        }
+
+        .social a 
+        {
+            margin: 0 10px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .social a:hover 
+        {
+            color: var(--main-color);
+        }
+
+
+    
+
+        </style>
+
+    </head>
+    
+    <body>
+        
+        <!-- Navigation panel -->
+        <header class="header">
+            <a href="Navbar.html" class="logo">BlockChain</a>            
+            <nav class="navbar">
+                <ul class="right-side">
+                    <li>
+                        <div class="box">
+                            <input type="text" placeholder="Search">
+                            <i class="bx bx-search"></i>
+                        </div>
+                    </li>
+                    <li><a href="#">Online Training</a></li>
+                    <li><a href="login/" class="signin">SignIn</a></a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <header class="header2">
+            <nav class="navbar2">
+                <ul>
+                    <li><a href="stock/?output={{ username }}">STOCK</a></li>
+                    <li><a href="transaction/?output={{ username }}">TRANSACTION</a></li>
+                    <li>
+                        <a href="#">ABOUT US <i class="bx bx-caret-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT <i class="bx bx-caret-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">SUPPORT <i class="bx bx-caret-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">WALLET <i class="bx bx-caret-down"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="account/?output={{ username }}">ACCOUNT </a>
+                        <!-- <ul class="dropdown">
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                            <li><a href="#">link 1</a></li>
+                        </ul> -->
+                    </li>
+                    
+                </ul>
+             </nav>
+        </header>
+
+        <!-- Main Section -->
+        <main>
+            <section class="section-main section">
+                <div class="container grid grid-two-row">
+                    <div class="section-main-image">
+                        <img src="/static/images/LoginPage/3.jpg" width="100%" alt="BlockChain" class="about-img">
+                    </div>
+                    <div class="section-main-data">
+                        <h3 class="about-heading"> About BlockChain</h3>
+                        <p class="main-top-data">
+                            information. It is built upon a distributed network of nodes, ensuring transparency, security, and immutability of data. Each block in the chain contains a record of transactions or data, and once added, it cannot be altered without consensus from the majority of network participants. This tamper-resistant quality makes blockchain invaluable in a variety of industries, including finance, supply chain management, healthcare, and more. Beyond cryptocurrencies like Bitcoin, blockchain's potential lies in enabling smart contracts, enhancing traceability, and facilitating trust in a digital world, promising a future where intermediaries are minimized, and data integrity is maximized.
+
+                        </p>
+                        <div class="btn-box">
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+
+                        <div class="section-main-image2">
+                            <img src="/static/images/LoginPage/4.jpg" width="100%" alt="" class="about-img">
+                        </div>
+                        <h3 class="about-heading2">Why BlockChain</h3>
+                        <p class="why-use-blckchn">Blockchain technology should be used for several compelling reasons: 
+                            <br>
+                            <br>
+                            <span>Trust and Transparency:</span> Blockchain's decentralized nature ensures that data is secure and transparent. Transactions are recorded in a tamper-resistant manner, making it nearly impossible to alter or falsify records. This is particularly valuable in industries where trust is paramount, such as finance, supply chain, and healthcare.
+                            <br>
+                            <br>
+                            <span>Security:</span> Blockchain uses advanced cryptographic techniques to secure data. The consensus mechanism requires validation by multiple participants, making it highly resistant to fraud and hacking. It can significantly reduce the risk of data breaches and cyberattacks.
+                            <br>
+                            <br>
+                            <span>Data Ownership:</span> Blockchain allows individuals to have greater control over their personal data. They can grant access to specific parties and even monetize their data if they choose. This empowers individuals in the era of data privacy concerns.
+                            <br>
+                            <br>
+                            <span>Reduced Intermediaries:</span> By eliminating the need for intermediaries, such as banks or brokers, blockchain can streamline processes, reduce costs, and increase efficiency. This is particularly beneficial in financial transactions and supply chain management, where intermediaries can add complexity and expenses.
+                            <br>
+                            <br>
+                            <span>Smart Contracts:</span> Blockchain enables the creation and execution of smart contracts, self-executing agreements with predefined rules. These contracts can automate various processes, reducing the potential for disputes and errors. They are especially valuable in sectors like real estate, insurance, and legal.
+                            <br>
+                            <br>
+                            <span>Global and Borderless:</span> Blockchain operates on a global scale and is not limited by geographical boundaries. This opens up opportunities for cross-border transactions and collaborations, making it ideal for international trade and remittances.
+                            <br>
+                            <br>                           
+                        </p>
+                        <div class="btn-box">
+                            <a href="#" class="btn2">Read More</a>
+                        </div>
+                    </div>               
+                </div>
+            </section>
+        </main>
+ <!--       
+        <section class="about" id="about">
+            <div class="about">
+                <h3 class="heading">About <span>BlockChain</span></h3>
+                
+                <div class="about-img">
+                    <img src="AboutUs2.jpg" width="100%" alt="">
+                    <span class="circle-spin"></span>
+                </div>
+    
+                <div class="about-content">
+                    <p>Blockchain is a decentralized, secure digital ledger technology used for recording transactions across a network of computers.
+                         It ensures data integrity and transparency, making it valuable for financial transactions and various other industries.
+                          Blockchain's potential extends to smart contracts, digital identity, and more, revolutionizing data management and reducing 
+                          the need for intermediaries.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="about"></div>
+    
+                <div class="content2">
+                    <h3 class="comparison">Why <span>BlockChain</span> is <span>Better</span></h3>
+                    
+                    <div class="about-img">
+                        <img src="AboutUs.jpg" width="100%" alt="">
+                        <span class="circle-spin"></span>
+                    </div>
+    
+                    <div class="about-content">
+                        <pre>Blockchain offers several advantages that make it better in various applications:
+    
+                            1. Security: Blockchain uses strong cryptographic techniques to secure data, making it extremely resistant to hacking and fraud. Once a record is added, it's virtually immutable, enhancing data integrity.
+                            
+                            2. Transparency: All participants in a blockchain network can view and verify transactions, promoting transparency and trust without relying on intermediaries.
+                            
+                            3. Decentralization: Unlike traditional centralized systems, blockchain operates on a distributed network, reducing the risk of a single point of failure and increasing resilience.
+                            
+                            4. Efficiency: Smart contracts, automated self-executing agreements on the blockchain, streamline processes, reduce errors, and cut costs.
+                            
+                            5. Trust: Blockchain's design minimizes the need for trust in central authorities or third parties, making it ideal for applications where trust is essential, such as financial transactions and supply chain management.
+                            
+                            6. Reduced Intermediaries: By removing intermediaries, blockchain can lower transaction costs and processing times, benefitting various industries.
+                            
+                            7. Immutable Records: Once data is added to the blockchain, it is exceptionally difficult to alter, providing a reliable and tamper-proof historical record.
+                            
+                            8. Accessibility: Blockchain technology is becoming more accessible, enabling businesses and individuals to leverage its benefits for a wide range of applications.
+                            
+                            While blockchain has significant advantages, it's not a one-size-fits-all solution and may not be suitable for every use case. Careful consideration of its strengths and limitations is essential when determining its appropriateness for a specific application.
+                        </pre>
+                    </div>
+                </div>
+            </div> 
+        </section>
+-->   
+
+        <footer class="footer">
+            <nav class="navbar3">
+                <div class="row">
+                    <div class="footer-col">
+                        
+                        <div class="btm-nav">                        
+                            <h4 class="header3">UPDATES</h4>
+                                <ul>
+                                    <li><a href="#">Training</a></li>
+                                    <li><a href="#">Bug Report</a></li>
+                                    <li><a href="#">Suggestions</a></li>
+                                    <li><a href="#">Request New Feature</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <div class="right-panel"> 
+                            <div class="btm-nav">
+                                <h4 class="header3">ABOUT BLOCKCHAIN</h4>
+                                    <ul>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Partners</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Refund Policy</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Data FAQ</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="btm-nav">
+                            <div class="footer-col">
+                                <h4 class="header3">CONTACT US</h4>
+                                <ul>
+                                    <li><a href="#">Email: support@*****</a></li>
+                                    <li><a href="#">Messenger: *****</a></li>
+                                    <li><a href="#">Address</a></li>
+                                </ul>
+                            </div> 
+                        </div>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="social">
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+        </div>
+        </footer>
+
+    </body>      
+</html>
+
+{% endblock %}

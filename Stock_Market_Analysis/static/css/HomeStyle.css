@@ -1,0 +1,217 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+    --nav-color: rgb(5, 34, 97);
+    --second-nav-color: rgb(33, 107, 244);
+}
+
+html
+{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body
+{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar a
+{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+}
+
+.logo
+{
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.right-side li,
+.right-side li a
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.header2
+{
+    position: relative;
+    top: .05%;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--second-nav-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar2 a
+{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 0;    
+}
+
+ul
+{
+    list-style: none;
+}
+
+.navbar2 ul li
+{
+    display:inline-block;
+    position: relative;
+}
+
+.navbar2 ul li a
+{
+    display: block;
+    padding: 20px 25px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.navbar2 ul li .dropdown
+{
+    width: fit-content;
+    background: var(--main-color);
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+
+.navbar2 ul li .dropdown li
+{
+    display: block;
+}
+
+.navbar2 ul li a:hover
+{
+    background: var(--bg-color) ;
+    border-radius: 50px;
+}
+
+.navbar2 ul li:hover ul.dropdown
+{
+    display: block;
+}
+
+.middlebody
+{
+    background-color: #fff;
+    top: 4%;
+    height: 100%;
+    width: 100%;
+}
+
+.footer
+{
+    background: var(--nav-color);
+    padding: 5rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar3 a
+{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+}
+
+.navbar3 a:hover
+{
+    color: var(--main-color);
+}
+
+.btm-nav ul
+{
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 2.5rem;
+    column-gap: 2rem;
+    margin-left: 40%;  
+    margin-right: 20%;
+    
+}
+
+.h_line
+{
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 10%;
+
+}
+
+.header3
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: var(--second-nav-color);
+    margin-left: 40%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: .1px ;
+    height: 20px;  
+}
+
+.social a
+{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+

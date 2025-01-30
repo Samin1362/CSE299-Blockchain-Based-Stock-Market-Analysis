@@ -1,0 +1,152 @@
+*
+{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/static/images/LoginPage/1.jpg');
+    
+}
+.menu-bar
+{ 
+    text-align: center;
+}
+
+.menu-bar ul
+{
+    display: inline-flex;
+    list-style: none;
+    color:#fff;   
+}
+.menu-bar ul li
+{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+}
+.menu-bar ul li a
+{
+    text-decoration: none;
+    color: #fff;
+}
+.active, .menu-bar ul li:hover
+{
+    background: #1c8adb;
+    border-radius: 50px;
+}
+.menu-bar .fa-solid
+{
+    margin-right: 8px;
+}
+.sub-menu-1
+{
+    display: none;
+}
+.menu-bar ul li:hover  .sub-menu-1
+{
+    display: block;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+.menu-bar ul li:hover  .sub-menu-1 ul
+{
+    display: block;
+    margin: 10px;
+
+}
+.menu-bar ul li:hover  .sub-menu-1 ul li
+{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    border-radius: 50px;
+    text-align: left;
+}
+.menu-bar ul li:hover  .sub-menu-1 ul li:last-child
+{
+    border-bottom:none ;
+}
+.menu-bar .sign-btn-1
+{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+    background: transparent;
+    color: #fff;
+}
+.sign-btn-1:hover
+{
+    background: #1c8adb;
+    border-radius: 50px;
+}
+img
+{
+    width: 70px;
+    margin-top: -50px;
+}
+.input-box
+{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+.Sign-up-form
+{
+    width: 400px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,3 green, blue, alpha);
+    background: #fff;
+    padding: 30px;
+    margin: 8% auto;
+    text-align: center;
+}
+.Sign-up-form h1
+{
+    color: #1c8adb;
+    margin-bottom: 30px;
+}
+button
+{
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.sign-btn
+{
+    background-color: #1c8adb;
+}
+a
+{
+    text-decoration: none;
+}
+hr
+{
+    margin-top: 20px;
+    width: 80px;
+}
+.signInbtn
+{
+    background-color: #1c8adb;
+
+}
+
+.h1{
+    color: #fff;
+}
